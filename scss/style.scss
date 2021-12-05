@@ -1,0 +1,1234 @@
+@import 'reset';
+@import 'owl-carousel';
+@import 'layout';
+@import 'color';
+@import 'fonts';
+@import 'screen';
+@import 'animation-plugin';
+@import 'owl-custom';
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
+*{
+    font-family: 'Viga','Noto Sans TC', sans-serif;
+    color: $black;
+}
+//universal
+body{
+    overflow-x: hidden;
+}
+
+header, footer{
+    @include m-x(5%, 5%);
+}
+
+header{
+    ul{
+        @include flex-row;
+        align-items: center;
+        .header-menu-logo{
+            @include m-r(auto);
+            width: 360px;
+            a{
+                @include p-y(8px, 8px);
+                text-align: center;
+                display: block;
+            }
+        }
+        li:nth-child(2),li:nth-child(3),li:nth-child(4){
+            @include m-x(16px, 16px);
+            a{
+                @include font-set(44px, normal);
+            }
+        }
+    }
+}
+
+footer{
+    p{
+        @include p-y(24px ,24px);
+        @include font-set(16px, normal);
+        text-align: center;
+    }
+}
+
+.content-body{
+    @include m-b(64px);
+    @include m-x(5%, 5%);
+}
+
+span, a, i, button{
+    transition: 0.25s linear;
+}
+
+$border-cirlce: 100000px;
+
+$shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+
+//helper
+.helper{
+    text-align: center;
+    background-color: $deep-gray;
+    box-shadow: $shadow;
+    z-index: 99;
+    i{
+        color: $white;
+    }
+    span{
+        white-space: nowrap;
+        color: $white;
+    }
+}
+.helper-l{
+    @include fixed(none, 5%, 10%, none, auto);
+    height: 96px;
+    width: 96px;
+    border-radius: $border-cirlce;
+    i{
+        @include p-t(16px);
+        font-size: 36px;
+    }
+    span{
+        @include p-t(8px);
+        display: block;
+    }
+}
+.helper-l:hover{
+    background-color: $primary;
+}
+.helper-m{
+    @include p-x(16px, 16px);
+    @include p-y(16px, 16px);
+    @include fixed(none, 5%, 64px, none, auto);
+    align-items: center;
+    text-align: center;
+    border-radius: $border-cirlce;
+    display: none;
+    i{
+        @include m-r(4px);
+        font-size: 24px;
+        color: $white;
+    }
+    span{
+        @include m-l(4px);
+        @include font-set(16px, normal);
+        white-space: nowrap;
+        color: $white;
+        display: block;
+    }
+}
+//popup
+.subject{
+    @include fixed(0, 0, 0, 0, auto);
+    @include bg-color-a($black, 0.9);
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    overflow: auto;
+    display: none;
+    opacity: 0;
+    visibility: visible;
+    transition: 0.5s linear;
+    .subject-content{
+        @include m-x(auto, auto);
+        @include m-y(auto, auto);
+        height: 472px;
+        width: 440px;
+        border-radius: 16px;
+        box-shadow: 0 0 10px rgba(50, 50, 50, 0.25);
+        text-align: center;
+        overflow: hidden;
+        .subject-content-title{
+            @include p-y(16, 16px);
+            background-color: $black;
+            position: relative;
+            h5{
+                @include font-set(24px, bold);
+                color: $white;
+            }
+            i{
+                @include absolute(0, 5%, 0, none, auto);
+                height: 32px;
+                width: 32px;
+                font-size: 32px;
+                color: $white;
+            }
+        }
+        .subject-content-text{
+            overflow: hidden;
+            background-color: $white;
+            a{
+                @include p-y(16px, 16px);
+                @include font-set(24px, bold);
+                display: block;
+                text-align: center;
+            }
+            .subject-content-text-active{
+                color: $primary;
+                i{
+                    color: inherit;
+                }
+            }
+            .subject-content-text-link{
+                i{
+                    @include fade-out(0);
+                }
+            }
+            .subject-content-text-link:hover{
+                background-color: $smoke-white;
+                i{
+                    @include fade-in;
+                }
+            }
+            .subject-content-text-active, .subject-content-text-link{
+                @include m-l(-24px);
+            }
+            .subject-content-text-line{
+                color: $white;
+                background-color: $line;
+                i{
+                    color: $white;
+                }
+            }
+            .subject-content-text-line:hover{
+                background-color: $line*0.9;
+            }
+        }
+        .subject-content-title, .subject-content-text{
+            overflow: hidden;
+        }
+    }
+}
+//screen-alert
+.screen-alert{
+    @include fixed(0, 0, 0, 0, auto);
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    background-color: $white;
+    .screen-alert-content{
+        @include absolute(0, 0, 0, 0, auto);
+        @include flex-row;
+        height: 80px;
+        width: 240px;
+        align-items: center;
+        i{
+            @include m-r(8px);
+            font-size: 44px;
+        }
+        p{
+            @include m-l(8px);
+            @include font-set(16px, normal);
+        }
+    }
+}
+//index(page)
+//index
+.index{
+    background-color: $white;
+    background-image: url(../images/map.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+//header
+.index-header{
+    ul{
+        li:nth-child(2),li:nth-child(3),li:nth-child(4){
+            a{
+                color: $black;
+            }
+        }
+    }
+}
+//content-vision
+.main-vision{
+    position: relative;
+    overflow: hidden;
+    .main-vision-pin1{
+        @include absolute(none, none, 15%, 10%, none);
+        width: 50px;
+    }
+    .main-vision-pin2{
+        @include absolute(none, none, 45%, 20%, none);
+        width: 50px;
+    }
+    .main-vision-pin3{
+        @include absolute(35%, 15%, none, none, none);
+        width: 50px;
+    }
+    .main-vision-pin4{
+        @include absolute(10%, none, none, 10%, none);
+        width: 50px;
+    }
+    .main-vision-pin5{
+        @include absolute(none, 10%, 15%, none, none);
+        width: 50px;
+    }
+    .main-vision-pin6{
+        @include absolute(none, 25%, 30%, none, none);
+        width: 50px;
+    }
+    .main-vision-pin7{
+        @include absolute(none, 25%, none, 25%, none);
+        width: 50px;
+    }
+    .main-vision-pin8{
+        @include absolute(5%, 10%, none, none, none);
+        width: 50px;
+    }
+    .main-vision-books{
+        opacity: 0;
+    }
+    .main-vision-character{
+        @include translate(175%, 0);
+    }
+    .main-vision-books, .main-vision-character{
+        @include absolute(0, 0, 0, 0, auto);
+    }
+}
+.books-animation-show{
+    animation: booksanimationshow 0.5s linear forwards;
+}
+@keyframes booksanimationshow{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+.character-moving{
+    animation: charactermoving 1.5s linear forwards;
+}
+.character-show{
+    transform: translateX(0) !important;
+}
+@keyframes charactermoving{
+    0% {@include translate(175%, 0)};
+    40% {@include translate(0, 0)};
+    60% {@include translate(-12.5%, 0)};
+    80% {@include translate(-6.25%, 0)};
+    100% {@include translate(0, 0);}
+}
+.books-show{
+    opacity: 1 !important;
+}
+//content-banner
+.main-banner{
+    overflow: hidden;
+    position: relative;
+    .main-banner-img{
+        @include absolute(0, 0, 0, 0, auto);
+    }
+    .main-banner-l{
+        display: block;
+    }
+    .main-banner-m, .main-banner-s{
+        display: none;
+    }
+}
+//content-title
+.main-content{
+    text-align: center;
+    h1{
+        @include font-set(64px, bold);
+        color: $primary;
+    }
+    h3{
+        @include font-set(48px, bold);
+    }
+    p{
+        @include m-b(16px);
+        @include font-set(32px, bold);
+        color: $deep-gray;
+    }
+    h1, h3, p{
+        @include m-y(16px, 16px);
+    }
+}
+//content-books-type
+.books-type{
+    @include flex-row;
+    flex-wrap: nowrap;
+    .books-type-area{
+        @include p-y(24px, 24px);
+        width: 25%;
+        display: block;
+        text-align: center;
+        border-radius: 16px;
+        box-shadow: $shadow;
+        position: relative;
+        overflow: hidden;
+        h3{
+            @include p-y(16px, 16px);
+            @include m-b(8px);
+            @include font-set(24px, bold);
+            background-color: $white;
+            border-radius: $border-cirlce;
+        }
+        .books-type-area-img{
+            @include p-b(8px);
+            .owl-nav{
+                @include m-t(0);
+                button{
+                    @include fade-out(0.5);
+                    height: 44px;
+                    width: 44px;
+                    font-size: 44px;
+                    background-color: transparent !important;
+                    i{
+                        color: $deep-gray;
+                    }
+                }
+                .owl-prev{
+                    @include absolute(0, none, 0, 8px, auto);
+                }
+                .owl-next{
+                    @include absolute(0, 8px, 0, none, auto);
+                }
+                
+            }
+        }
+        .books-type-area-img:hover .owl-nav button{
+            @include fade-in;
+        }
+        p{
+            @include font-set(24px, normal);
+            color: $white;
+        }
+        h3, .books-type-area-img, p{
+            @include m-x(auto, auto);
+            width: 80%;
+        }
+    }
+    .books-type-area:first-child{
+        @include m-r(1.25%);
+    }
+    .books-type-area:nth-child(2),.books-type-area:nth-child(3){
+        @include m-x(1.25%, 1.25%);
+    }
+    .books-type-area:last-child{
+        @include m-l(1.25%);
+    }
+    .books-type-hot{
+        background-color: $hot;
+        h3{
+            color: $hot;
+        }
+        .books-type-area-img{
+            .owl-nav{
+                button:hover i{
+                    color: $hot;
+                }
+            }
+        }
+    }
+    .books-type-supplement{
+        background-color: $supplement;
+        h3{
+            color: $supplement;
+        }
+        .books-type-area-img{
+            .owl-nav{
+                button:hover i{
+                    color: $supplement;
+                }
+            }
+        }
+    }
+    .books-type-hungry{
+        background-color: $hungry;
+        h3{
+            color: $hungry;
+        }
+        .books-type-area-img{
+            .owl-nav{
+                button:hover i{
+                    color: $hungry;
+                }
+            }
+        }
+    }
+    .books-type-flavor{
+        background-color: $flavor;
+        h3{
+            color: $flavor;
+        }
+        .books-type-area-img{
+            .owl-nav{
+                button:hover i{
+                    color: $flavor;
+                }
+            }
+        }
+    }
+    
+}
+//content-event
+.event{
+    .event-title{
+        h4{
+            @include font-set(48px, bold);
+            span{
+                color: $line;
+            }
+        }
+        h5{
+            @include font-set(24px, bold);
+        }
+    }
+    .event-steps{
+        div{
+            @include m-b(24px);
+            @include flex-row;
+            align-items: center;
+            color: $deep-gray;
+            position: relative;
+            span{
+                @include p-x(16px, 16px);
+                @include p-y(8px, 8px);
+                @include m-r(16px);
+                color: $white;
+                border-radius: $border-cirlce;
+                white-space: nowrap
+            }
+            .tag-primary{
+                background-color: $black;
+            }
+            .tag-black{
+                background-color: $black;
+            }
+            .tag-line{
+                background-color: $black;
+            }
+            p{
+                @include m-l(16px);
+            }
+            span, p{
+                @include font-set(24px, bold);
+            }
+            &:after{
+                @include absolute(0, 0, 0, 0, auto);
+                content: '';
+                height: 100%;
+                width: 1px;
+            }
+        }
+        div:first-child:hover span{
+            background-color: $primary;
+        }
+        div:first-child:hover a{
+            color: $primary;
+        }
+        div:last-child:hover span{
+            background-color: $line;
+        }
+        div:last-child:hover a{
+            color: $line;
+        }
+    }
+    .event-other{
+        span{
+            @include m-b(8px);
+            display: block;
+        }
+        ul{
+            @include m-l(16px);
+            list-style-type:decimal;
+        }
+        span,ul{
+            @include font-set(16px, normal);
+        }
+    }
+    .event-title, .event-steps{
+        @include m-b(48px);
+    }
+}
+//index-footer
+.index-footer{
+    border-top: 1px solid $light-gray;
+    p{
+        color: $deep-gray;
+    }
+}
+//start-content
+.start{
+    @include flex-row;
+    @include fixed(0, 0, 0, 0, auto);
+    @include bg-color-a($black, 1);
+    z-index: 9999;
+    overflow: auto;
+    .start-content{
+        @include p-y(32px, 32px);
+        @include m-x(auto, auto);
+        @include m-y(auto, auto);
+        height: 376px;
+        width: 376px;
+        background-color: $white;
+        text-align: center;
+        box-sizing: border-box;
+        border-radius: 16px;
+        p{
+            @include font-set(24px, bold);
+        }
+        i{
+            @include m-y(24px, 24px);
+            font-size: 112px;
+            color: $primary;
+            display: block;
+        }
+        
+        a{
+            display: block;
+        }
+        .start-content-btn{
+            @include p-y(16px, 16px);
+            @include font-set(16px, normal);
+            color: $white;
+            background-color: $primary;
+            border-radius: $border-cirlce;
+        }
+        .start-content-btn:hover{
+            background-color: $primary*1.25;
+        }
+        .start-content-skip:hover{
+            color: $primary;
+        }
+        p, a{
+            @include m-x(auto, auto);
+            @include m-b(32px);
+            width: 60%;
+        }
+    }
+}
+//subject-hot(page)
+//header
+.subject-header{
+    ul{
+        li:nth-child(2),li:nth-child(3),li:nth-child(4){
+            a{
+                i{
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+.wrapper{
+    @include m-b(0px);
+    @include p-y(80px, 80px);
+    border-radius: 32px;
+    overflow: hidden;
+    background-color: $white;
+    background-image: url(../images/map.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    .wrapper-layout{
+        @include m-x(10%, 10%);
+        @include m-b(48px);
+    }
+    .wrapper-title{
+        h5{
+        @include font-set(64px, bold);
+        text-align: center;
+            span{
+                @include p-x(48px, 48px);
+                @include p-y(8px, 8px);
+                border-radius: $border-cirlce;
+                color: $white;
+                display: inline-block;
+            }
+        }
+    }
+    .wrapper-content{
+        @include p-b(48px);
+        text-align: center;
+        border-bottom:1px solid $light-gray;
+        p{
+            @include font-set(48px, bold);
+        }
+    }
+    .wrapper-list{ 
+        p:first-child{
+            @include font-set(48px, bold);
+            @include p-b(24px);
+            i{
+                color: inherit;
+            }
+        }
+        p:last-child{
+            @include font-set(24px, bold);
+            white-space: nowrap;
+        }
+        p{
+            text-align: center;
+        }
+    }
+    .wrapper-books{
+        background-color: $white;
+        box-shadow: $shadow;
+        border-radius: 32px;
+        overflow: hidden;
+        .wrapper-books-title{
+            p{
+                @include p-y(16px, 16px);
+                @include font-set(48px, bold);
+                border-top-left-radius: 32px;
+                border-top-right-radius: 32px;
+                color: $white;
+                background-color: $black;
+                text-align: center;
+                i{
+                    color: inherit;
+                }
+            }
+        }
+        .wrapper-books-content{
+            @include p-x(5%, 5%);
+            @include p-y(32px, 32px);
+            @include flex-row;
+            width: auto;
+            align-items: center;
+            box-sizing: border-box;
+            position: relative;
+            .wrapper-books-content-img{
+                @include m-x(5%, 2.5%);
+                width: 22.5%;
+            }
+            .wrapper-books-content-data{
+                @include m-x(2.5%, 5%);
+                width: 62.5%;
+                span{
+                    @include p-x(16px, 16px);
+                    @include p-y(8px, 8px);
+                    @include font-set(16px, bold);
+                    color: $white;
+                    border-radius: $border-cirlce;
+                    display: inline-block;
+                }
+                h4{
+                    @include font-set(32px, bold);
+                }
+                h5{
+                    @include font-set(24px, normal);
+                    color: $primary;
+                }
+                p{
+                    @include font-set(16px, normal);
+                    color: $deep-gray;
+                }
+                span, h4, h5, p{
+                    @include m-b(16px);
+                }
+            }
+            &:after{
+                @include absolute(0, 5%, 0, 5%, auto);
+                content: '';
+                border-bottom: 1px solid $light-gray;
+            }
+        }
+        .wrapper-books-content:last-child{
+            border: none;
+        }
+        .wrapper-books-content:hover{
+            background-color: $white*0.95;
+        }
+    }
+}
+//footer
+.subject-footer{
+    p{
+        color: $white;
+    }
+}
+//RWD
+@include desktop-m{
+    .books-type{
+        @include flex-row;
+        flex-wrap: nowrap;
+        .books-type-area{
+            @include p-y(24px, 24px);
+            h3{
+                @include p-y(8px, 8px);
+                @include m-b(8px);
+                @include font-set(24px, bold);
+            }
+            .books-type-area-img{
+                @include p-b(8px);
+                .owl-nav{
+                    button{
+                        height: 44px;
+                        width: 44px;
+                        font-size: 44px;
+                    }
+                }
+            }
+            p{
+                @include font-set(16px, normal);
+                color: $white;
+            }
+            h3, .books-type-area-img, p{
+                @include m-x(auto, auto);
+                width: 80%;
+            }
+        }
+        .books-type-area:first-child{
+            @include m-r(0.5%);
+        }
+        .books-type-area:nth-child(2),.books-type-area:nth-child(3){
+            @include m-x(0.5%, 0.5%);
+        }
+        .books-type-area:last-child{
+            @include m-l(0.5%);
+        }        
+    }
+    .wrapper{
+        @include p-y(48px, 16px);
+        .wrapper-layout{
+            @include m-x(5%, 5%);
+        }
+        .wrapper-title{
+            h5{
+            @include font-set(48px, bold);
+                span{
+                    @include p-x(48px, 48px);
+                    @include p-y(8px, 8px);
+                }
+            }
+        }
+        
+        .wrapper-books{
+            .wrapper-books-title{
+                p{
+                    @include p-y(16px, 16px);
+                    @include font-set(32px, bold);
+                }
+            }
+            .wrapper-books-content{
+                @include p-x(5%, 5%);
+                .wrapper-books-content-data{
+                    h4{
+                        @include font-set(24px, bold);
+                    }
+                    h5{
+                        @include font-set(24px, normal);
+                        color: $primary;
+                    }
+                    p{
+                        @include font-set(16px, normal);
+                        color: $deep-gray;
+                    }
+                    span, h4, h5, p{
+                        @include m-b(16px);
+                    }
+                }
+            }
+            .wrapper-books-content:last-child{
+                border: none;
+            }
+        }
+    }
+}
+@include ipad-pro{
+    .books-type{
+        @include flex-row;
+        flex-wrap: wrap;
+        .books-type-area{
+            @include m-b(48px);
+            @include p-y(24px, 24px);
+            width: 47.5%;
+            h3{
+                @include p-y(8px, 8px);
+                @include m-b(8px);
+                @include font-set(24px, bold);
+            }
+            .books-type-area-img{
+                @include p-b(8px);
+                .owl-nav{
+                    button{
+                        height: 44px;
+                        width: 44px;
+                        font-size: 44px;
+                    }
+                }
+            }
+            p{
+                @include font-set(16px, normal);
+                color: $white;
+            }
+            h3, .books-type-area-img, p{
+                @include m-x(auto, auto);
+                width: 80%;
+            }
+        }
+        .books-type-area:first-child,.books-type-area:nth-child(3){
+            @include m-x(0, 2.5%);
+        }
+        .books-type-area:nth-child(2),.books-type-area:last-child{
+            @include m-x(2.5%, 0);
+        }
+    }        
+    .event{
+        .event-steps{
+            div{
+                @include m-b(48px);
+                .tag-primary{
+                    background-color: $primary;
+                }
+                .text-primary{
+                    a{
+                    color: $primary;
+                    }
+                }
+                .tag-line{
+                    background-color: $line;
+                }
+                .text-line{
+                    a{
+                    color: $line;
+                    }
+                }
+            }
+        }
+    }
+    .wrapper{
+        @include p-y(48px, 0);
+        .wrapper-title{
+            h5{
+                @include font-set(40px, bold);
+            }
+        }
+        .wrapper-content{
+            p{
+                @include font-set(40px, bold);
+            }
+        }
+        .wrapper-list{
+            p:first-child{
+                @include font-set(40px, bold);
+            }
+        }
+        .wrapper-books{
+            .wrapper-books-content{
+                border-bottom: none;
+                .wrapper-books-content-data{
+                    span, h4, h5, p{
+                        @include m-b(8px);
+                    }
+                }
+                &:after{
+                    border: none;
+                }
+            }
+            .wrapper-books-content:hover{
+                background-color: transparent;
+            }
+            .wrapper-books-content:nth-child(odd){
+                background-color: $white*0.95;
+            }
+        }
+    }
+}
+@include ipad{
+    .main-banner{
+        overflow: hidden;
+        .main-banner-m{
+            display: block;
+        }
+        .main-banner-l, .main-banner-s{
+            display: none;
+        }
+    }
+    .main-content{
+        h1{
+            @include font-set(48px, bold);
+        }
+        h3{
+            @include font-set(32px, bold);
+        }
+        p{
+            @include font-set(24px, bold);
+        }
+        h1, h3, p{
+            @include m-y(8px, 8px);
+        }
+    }
+    .wrapper{
+        .wrapper-layout{
+            @include m-b(32px);
+        }
+        .wrapper-title{
+            h5{
+                @include font-set(32px, bold);
+            }
+        }
+        .wrapper-content{
+            @include p-b(32px);
+            p{
+                @include font-set(32px ,bold);
+            }
+        }
+        .wrapper-list{
+            p:first-child{
+                @include font-set(32px, bold);
+            }
+        }
+        .wrapper-books{
+            .wrapper-books-title{
+                p{
+                    @include font-set(32px, bold);
+                }
+            }
+        }
+    }
+}
+@include mobile-l{
+    .helper-l{
+        display: none;
+    }
+    .helper-m{
+        @include flex-row;
+    }
+    .subject{
+        .subject-content{
+            width: 90%;
+            .subject-content-title{
+                @include p-y(16, 16px);
+                h5{
+                    @include font-set(24px, bold);
+                }
+                i{
+                    @include absolute(0, 5%, 0, none, auto);
+                    height: 32px;
+                    width: 32px;
+                    font-size: 32px;
+                }
+            }
+            .subject-content-text{
+                overflow: hidden;
+                a{
+                    @include p-y(16px, 16px);
+                    @include font-set(24px, bold);
+                }
+            }
+        }
+    }
+    .start{
+        .start-content{
+            width: 90%;
+            p, i, a{
+                @include m-x(auto, auto);
+                width: 80%;
+            }
+        }
+    }
+    .index{
+        background-color: $white;
+        background-image: none;
+        background-size: none;
+        background-attachment: none;
+        &:before{
+            @include fixed(0, 0, 0, 0, auto);
+            z-index: -1;
+            content: ' ';
+            background: url(../images/map.jpg) center 0 no-repeat;
+            background-size: cover;
+        }
+    }
+    header, footer{
+        @include m-x(5%, 5%);
+    }
+    header{
+        ul{
+            .header-menu-logo{
+                @include m-r(auto);
+                width: 184px;
+            }
+            li:nth-child(2),li:nth-child(3),li:nth-child(4){
+                @include m-x(4px, 4px);
+                a{
+                    @include font-set(32px, normal);
+                }
+            }
+        }
+    }
+    .content-body{
+        @include m-x(5%, 5%);
+        @include m-b(24px);
+    }
+    .main-banner{
+        .main-banner-s{
+            display: block;
+        }
+        .main-banner-l, .main-banner-m{
+            display: none;
+        }
+    }
+    .main-content{
+        text-align: center;
+        h1{
+            @include font-set(24px, bold);
+        }
+        h3{
+            @include font-set(20px, bold);
+        }
+        p{
+            @include font-set(16px, bold);
+        }
+    }
+    .books-type{
+        @include flex-row;
+        flex-wrap: wrap;
+        .books-type-area{
+            @include m-b(48px);
+            @include p-y(24px, 24px);
+            width: 100%;
+            h3{
+                @include p-y(8px, 8px);
+                @include m-b(8px);
+                @include font-set(24px, bold);
+            }
+            .books-type-area-img{
+                @include p-b(8px);
+                .owl-nav{
+                    button{
+                        height: 44px;
+                        width: 44px;
+                        font-size: 44px;
+                    }
+                }
+            }
+            p{
+                @include font-set(16px, normal);
+                color: $white;
+            }
+            h3, .books-type-area-img, p{
+                @include m-x(auto, auto);
+                width: 80%;
+            }
+        }
+        .books-type-area:first-child,.books-type-area:nth-child(3){
+            @include m-x(0, 0);
+        }
+        .books-type-area:nth-child(2),.books-type-area:last-child{
+            @include m-x(0 ,0);
+        }
+    }
+    .event{
+        .event-title{
+            h4{
+                @include p-b(16px);
+                @include font-set(32px, bold);
+            }
+            h5{
+                @include font-set(24px, bold);
+            }
+        }
+        .event-steps{
+            div{
+                @include m-b(8px);
+                @include p-y(32px, 32px);
+                flex-wrap: wrap;
+                border-bottom: 1px solid $light-gray;
+                span{
+                    @include m-x(auto, auto);
+                    @include m-b(16px);
+                    text-align: center;
+                }
+                p{
+                    @include m-x(0, 0);
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+        .event-other{
+            ul{
+                @include m-l(24px);
+            }
+        }
+        .event-title, .event-steps{
+            @include m-b(16px);
+        }
+    }
+    .wrapper{
+        @include p-y(24px, 16px);
+        border-radius: 16px;
+        background-image: none;
+        background-size: none;
+        background-attachment: none;
+        .wrapper-layout{
+            @include m-b(16px);
+        }
+        .wrapper-title{
+            h5{
+                @include font-set(24px, bold);
+            }
+        }
+        .wrapper-content{
+            @include p-b(16px);
+            p{
+                @include font-set(24px, bold);
+            }
+        }
+        .wrapper-list{
+            p:first-child{
+                @include font-set(24px, bold);
+                @include p-b(8px);
+            }
+            p:last-child{
+                @include font-set(16px, bold);
+            }
+        }
+        .wrapper-books{
+            @include m-x(auto, auto);
+            @include m-b(0);
+            width: 90% !important;
+            border-radius: 0;
+            box-shadow: $shadow;
+            border-radius: 8px;
+            .wrapper-books-title{
+                p{
+                    @include m-x(auto, auto);
+                    @include p-y(16px, 16px);
+                    @include font-set(16px, normal);
+                    border-top-left-radius: 8px;
+                    border-top-right-radius: 8px;
+                }
+            }
+            .wrapper-books-content{
+                @include m-x(0, 0);
+                @include p-x(5%, 5%);
+                flex-wrap: wrap;
+                .wrapper-books-content-img{
+                    @include m-x(0, 0);
+                    width: 100%;
+                    img{
+                        @include m-x(auto, auto);
+                        @include m-b(24px);
+                        width: 40%;
+                        display: block;
+                    }
+                }
+                .wrapper-books-content-data{
+                    @include m-x(0, 0);
+                    width: 100%;
+                    span{
+                        @include m-x(auto, auto);
+                        @include m-b(24px);
+                        @include font-set(16px, normal);
+                        width: 88px;
+                        display: block;
+                        text-align: center;
+                    }
+                    h5{
+                        @include font-set(16px, normal);
+                    }
+                }
+            }
+        }
+    }
+    footer{
+        p{
+            @include p-y(8px, 8px);
+            @include font-set(16px, normal);
+            text-align: left;
+        }
+    }
+}

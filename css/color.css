@@ -1,0 +1,36 @@
+.line-text {
+  color: #06c755;
+}
+
+.hot-text {
+  color: #29c2ba;
+}
+
+.hot-background {
+  background-color: #29c2ba;
+}
+
+.supplement-text {
+  color: #27bee4;
+}
+
+.supplement-background {
+  background-color: #27bee4;
+}
+
+.hungry-text {
+  color: #d44960;
+}
+
+.hungry-background {
+  background-color: #d44960;
+}
+
+.flavor-text {
+  color: #b45acf;
+}
+
+.flavor-background {
+  background-color: #b45acf;
+}
+/*# sourceMappingURL=color.css.map */

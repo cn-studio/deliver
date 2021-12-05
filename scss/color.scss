@@ -1,0 +1,106 @@
+//黑色
+$black:rgb(50, 50, 50);
+
+//深灰色
+$deep-gray: rgb(80, 80, 80);
+
+//灰色
+$gray:rgb(150, 150, 150);
+
+//亮灰色
+$light-gray: rgb(200, 200, 200);
+
+//白色
+$smoke-white:rgb(235, 235, 235);
+
+//白色
+$white:rgb(245, 245, 245);
+
+//特別色
+$red:rgb(190, 35, 35);
+
+//主色
+$primary: rgb(236, 108, 0);
+
+//LINE顏色
+$line: rgb(6, 199, 85);
+.line-text{
+    color: $line;
+}
+
+//熱門打卡套餐
+$hot: rgb(41, 194, 186);
+
+.hot-text{
+    color: $hot;
+}
+.hot-background{
+    background-color: $hot;
+}
+//能量補充快餐
+$supplement: rgb(39, 190, 228);
+
+.supplement-text{
+    color: $supplement;
+}
+
+.supplement-background{
+    background-color: $supplement;
+}
+
+//飢不擇食全餐
+$hungry: rgb(212, 73, 96);
+
+.hungry-text{
+    color: $hungry;
+}
+
+.hungry-background{
+    background-color: $hungry;
+}
+
+//異國風味大餐
+$flavor: rgb(180, 90, 207);
+
+.flavor-text{
+    color: $flavor;
+}
+
+.flavor-background{
+    background-color: $flavor;
+}
+
+//透明色
+@mixin bg-color-a($color, $opacity){
+    background-color: rgba($color, $opacity);
+}
+
+//淡入效果
+@mixin fade-in{
+    visibility: visible;
+    opacity: 1;
+}
+//淡出效果
+@mixin fade-out($opacity) {
+    visibility: visible;
+    opacity: $opacity;
+}
+
+//立體效果
+@mixin threeD($top, $middle, $down, $bottom){
+    background: linear-gradient(
+        $top 0%,
+        $middle 10%,
+        $down 90%,
+        $bottom 100%,
+    );
+    box-shadow: 0 0 10px $gray;
+}
+
+//漸層效果
+@mixin colors($top, $bottom) {
+    background: linear-gradient(
+        $top 0%,
+        $bottom 100%,
+    )
+}
